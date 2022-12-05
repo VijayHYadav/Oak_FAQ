@@ -120,7 +120,7 @@ L2-06:18 What does ordinal() method do?
 
 L2-07:09 Can we use Enum with TreeSet or TreeMap in Java?
     Yes. We know we can use comparable types with treeSet or treeMap.
-    👉🏻 Since Enum by default impalements Comparable interface, they can be used inside TreeSet or TreeMap.
+    👉🏻 Since Enum by default implements Comparable interface, they can be used inside TreeSet or TreeMap.
 
 L2-07:33 Can we use Enum in switch case in Java?
     Yes. Enum instances are constants so we can use them inside switch case.

@@ -33,7 +33,7 @@ What is Member Inner Class?⭐️
     -> Class Inner behaves as instance member of this Class Outer.
     -> To access this class, we must create the object of Outer Class.
 
-    The Member inner classes can be private protected public final <default> abstract etc.
+    The Member inner classes can be private protected public final <default> abstract etc. just other member of class
 
 What is the difference between Static nested Class and Member Inner class?⭐️
 

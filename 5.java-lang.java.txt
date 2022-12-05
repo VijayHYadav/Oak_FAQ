@@ -164,6 +164,11 @@ Difference between String, StringBuffer, StringBuilder.⭐️
 		Both StringBuffer and StringBuilder has not overriden the equals method
 		so equals of object class gets executed which compares references.
 
+		So if you invoke equals for string buffer or string builder, you are comparing 
+		the references. But if you are invoking equals for string class object, then you
+		are comparing the content of your strings.
+		
+
 How to check if two strings are equal?⭐️
 		There are two ways:
 		Using == and using equals() method.

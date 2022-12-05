@@ -5,10 +5,10 @@
 
 L1-00:45 What are classes and objects?
 		A Class is a user-defined-blueprint from which objects are created, which has attributes and behavior.
+		images/2022-12-03-15-18-53.png
 
 L1-04:30 How can we create class?
 		We can define a Class in java, using keyword "class".
-
 			class <ClassName>
 			{
 				//Variables
@@ -76,6 +76,8 @@ L2-01:13 How many access modifiers are there in java?
 
     			 So their scope is limited to its Package and its subclasses.
 
+				 We can't make class protected but we can main the class's members protected.
+
 L3-00:02 What is a Package?
     		A Package is a mechanism to keep all classes, interfaces and sub-packages;
     		which has similar functionalities, at the same place.
@@ -112,10 +114,16 @@ L4-00:04 What are non-access modifiers in java?
     						final specifier is used to restrict further modifications on any class, any method or any
     						variable.
     						-> if any primitive variable is final, we cannot change its value in whole program.
+							-> if a class is final, then we cannot implement that class.
+							-> if we are making a method final, that means we cannot modify the method afterwards.
 
     		3. Abstract :
     						abstract specifier is used to mark the method or Class to be incomplete and to must be
     						modified further by other classes.
+							class and method can be abstract.
+							-> if a method is abstract, that means that you are not giving any implementation to that method.
+							-> if a class is abstract, then the class is not complete. so you have to create a child class or further
+							class to give implementation or to complete the implementation of that class.
 
     		4. Synchronized :
     						This is used to achieve thread safety in multithreaded environment which is about executing
@@ -188,7 +196,8 @@ L6-05:32 Can we declare final variable without initialization?
     		Yes, we can declare final variable without initialisation.
     		-> Such variables are called as Blank Final Variable.
     			 Blank final variable can be static or non-static..
-
+			-> they can be only init in instance block & constructor.
+			
     		This is how we declare blank final variables:
 
     				private static final int blank_final;
@@ -318,6 +327,8 @@ L7-00:13 What is OOPS?
     objects, in that world, the states and behaviour of an object are the variable and methods.
 
 L7-01:15 What are the advantages of OOPS?
+	images/2022-12-04-05-57-11.png
+
     These are the major advantages of OOPS:
     1. Simplicity:
     	   Since OOPS consists real world objects, so the program structure remains clear to everyone without
@@ -337,17 +348,17 @@ L7-01:15 What are the advantages of OOPS?
 
 L7-02:37 What are the core concepts of oops?
 
-    1. Data Hiding : hiding the internal data, Securing the internal data
-    2. Abstraction : way to segregate implementations from other entities (Hiding internal implementation)
-    3. Encapsulation : Grouping of data member and member functions together
-    4. Inheritance : Inheritance is the process of creating a new Class from the existing class(Inheriting properties from a class)
+    1. Data Hiding : hiding the internal data, Securing the internal data (this is achieved by  by private)
+		-> images/2022-12-04-08-25-13.png
+    2. Abstraction : way to segregate implementations from other entities (Hiding internal implementation) (this is achieved by interface, abstract class)
+    3. Encapsulation : Grouping of data member and member functions together (this is achieved by class)
+    4. Inheritance : Inheritance is the process of creating a new Class from the existing class(Inheriting properties from a class) (this is achieved by extends)
     5. Association
     6. Composition
     7. Aggregation
     8. Polymorphism : a particular method that behaves different in different contexts
 
 L8-00:02 What is the difference between Abstraction and Encapsulation?
-
     Abstraction is implemented using interfaces and abstract classes and Encapsulation is about wrapping
     data members and member functions. This is implemented using private, protected keywords.
 
@@ -355,7 +366,11 @@ L8-00:02 What is the difference between Abstraction and Encapsulation?
     unauthenticated access, and implementations from outside world.
     Abstraction is about not showing the internal implementations directly to any other class.
 
+	images/2022-12-04-06-04-01.png
+	images/2022-12-04-06-05-05.png
+
 L8-01:04 What is difference between Abstract Class and Interface?
+	images/2022-12-04-06-16-06.png
 
     1. In abstract class, we can have both abstract and concrete methods where as in Interface,
        we can only have abstract methods, they cannot have concrete methods.
@@ -375,6 +390,28 @@ L8-01:04 What is difference between Abstract Class and Interface?
     methods and use the implemented methods which are defined in abstract class.
 
 L8-04:09 How can we write static, private and default methods in interface?
+
+	public interface MyInterface {
+		public void m1();
+		public void m2();
+		
+		// 1.8 java
+		static void m3() {
+			System.out.println("this is static method");
+		}
+		
+		// 1.8 java
+		default void m4() {
+			System.out.println("this is default method");
+			m5();
+		}
+		
+		// 1.9 java
+		private void m5() {
+			System.out.println("this is private method");
+		}
+	}
+
 
 L9-00:02 Can we have an abstract class without any abstract method?
     yes.
@@ -517,6 +554,8 @@ L11-01:26 Can a final method be overloaded in java?
 L11-01:36 What is IS-A and HAS-A relationship?
     IS-A relationship implies inheritance. i.e, if class 'A' extends class 'B', then A is-a B.
     For example,
+	images/2022-12-04-07-17-35.png
+	images/2022-12-04-07-18-21.png
 
     -> There is a 'Teacher' Class which extends a 'Person'. So here a person is a teacher. and it is
     transitive, like if another class 'MathTeacher' extends 'Teacher' class, then also
