@@ -33,10 +33,25 @@ L1-04:25 How JVM works?⭐️
     We know, JVM is a runtime engine to run the java applications.. when we write a java file..
     the compiler creates the Class file having the byte code.. This .class file goes into various steps.
 
+    The compiler creates the file, having the bytecode, which is .class file, which goes into various steps 
+    and these steps together describe the whole JVM.
+
+    File the .class file gets loaded by the class loader and stores the generated binary data in specialized memory areas in JVM after loading the class file 
+    execution engine executes these .class files and it reads the byte code line by line and uses the data and information present in those memory area and then executes
+    the code.
+
 L2-00:17 What is Classloader?⭐️
     Class loader is a set of components which loads the classes during runtime into JVM.
     These classes are not loaded all at once, when the application requires that particular class or we can say
     when we try to use a Class, Java ClassLoader loads that class into memory.
+
+    First, the binary data gets stored inside the method area and then JVM creates one object of type java.lang.class which holds all the class info and that gets loaded
+    in heap area, which is another memory area inside JVM memory. This java.lang.class object will provide you complete information for that class, like how many
+    methods are there, etc.. So whenever we call any class, it gets loaded from the hardware system into the java memory and stores the binary data in method area. and after that, JVM create a 
+    java.lang.class object for that class in heap area.
+
+    images/Screenshot from 2022-12-05 10-20-19
+
 
 L2-00:43 What activities are performed by the classloader subsystem?
     Class loader subsystem is responsible to perform these three activities:
@@ -56,6 +71,12 @@ L2-00:43 What activities are performed by the classloader subsystem?
             NO. Even though we call the class multiple times but in the heap area there will be only one
             Class class object, because one Class class object for that particular class is enough to
             provide information for that class. For any new object the class information will remain same.
+
+            // forName returns the class object of the provided class name.
+            Class c1 = Class.forName("java.lang.String");
+            Class c2 = Class.forName("java.lang.String");
+            // I'm using equality operator because equality operator compares the address of the references.
+            System.out.println(c1==c2); // true
 
         Linking: It consists of three activities..
                 Verify
@@ -87,6 +108,7 @@ L2-00:43 What activities are performed by the classloader subsystem?
 
 L2-07:14 What are the different class loaders used by JVM?
     There are three diff class loaders, each of them has a predefined location from where they loads class.
+    images/Screenshot from 2022-12-05 12-01-21.png
 
     Bootstrap Class Loader | Primordial Class loader:
 
@@ -116,6 +138,8 @@ L2-09:28 How does JVM load the classes?⭐️
     The classloader subsystem works on the delegation principle. One classloader delegates the
     responsibility for loading the class to their parent and if it doesn't work, then they loads the class
     by themselves
+    images/Screenshot from 2022-12-05 12-07-34.png
+    images/Screenshot from 2022-12-05 12-09-42.png
 
  What is the difference between static and dynamic class loading?⭐️
 
